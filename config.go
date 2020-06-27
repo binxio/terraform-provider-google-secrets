@@ -25,11 +25,11 @@ type Config struct {
 	Scopes              []string
 	UserProjectOverride bool
 
-	terraformVersion  string
-	tokenSource       oauth2.TokenSource
-	SecretManagerPath string
-	client            *secretmanager.Client
-	ctx               context.Context
+	terraformVersion    string
+	tokenSource         oauth2.TokenSource
+	SecretManagerPath   string
+	clientSecretManager *secretmanager.Client
+	ctx                 context.Context
 }
 
 var defaultClientScopes = []string{
@@ -50,7 +50,7 @@ func (c *Config) LoadAndValidate() error {
 	c.tokenSource = tokenSource
 
 	log.Printf("[INFO] Instantiating SecretManager Client")
-	c.client, err = secretmanager.NewClient(c.ctx, option.WithTokenSource(c.tokenSource))
+	c.clientSecretManager, err = secretmanager.NewClient(c.ctx, option.WithTokenSource(c.tokenSource))
 	if err != nil {
 		return err
 	}
