@@ -4,10 +4,10 @@ The google secrets provider aims to provide secrets by generating them and stori
   in plain text in the state file.
   
 Currently there are two resources:
-- [google\_secret\_manage\_generated\_password](#google_secret_manage_generated_password) - for passwords
-- [google\_secret\_manage\_generated\_rsa_key](#google_secret_manage_generated_rsa_key) - for RSA keys
+- [google\_secret\_manage\_generated\_password](#google_secret_manager_generated_password) - for passwords
+- [google\_secret\_manage\_generated\_rsa_key](#google_secret_manager_generated_rsa_key) - for RSA keys
 
-## google\_secret\_manage\_generated\_password
+## google\_secret\_manager\_generated\_password
 A generated secret version resource.
 
 This will generate a secret and store the value directly in the Google Secret manager secret, 
