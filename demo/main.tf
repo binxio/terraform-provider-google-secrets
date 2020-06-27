@@ -8,5 +8,5 @@ provider "google-secrets" {
 }
 
 variable "project" {
-  type    = string
+  type = string
 }
