@@ -89,7 +89,7 @@ func Provider() terraform.ResourceProvider {
 
 		ResourcesMap: map[string]*schema.Resource{
 			"google_secret_manager_generated_password": resourceGeneratedPassword(),
-			"google_secret_manager_generated_rsa_key": resourceGeneratedRSAKey(),
+			"google_secret_manager_generated_rsa_key":  resourceGeneratedRSAKey(),
 		},
 	}
 	provider.ConfigureFunc = func(d *schema.ResourceData) (interface{}, error) {

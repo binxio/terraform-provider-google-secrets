@@ -1,7 +1,10 @@
 package main
 
 import (
+	c "crypto/rand"
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
+	"math"
+	"math/big"
 	"math/rand"
 	"strings"
 	"time"
@@ -86,7 +89,8 @@ func resourceGeneratedPassword() *schema.Resource {
 func generatePassword(d *schema.ResourceData) string {
 	var password strings.Builder
 
-	rand.Seed(int64(time.Now().Nanosecond()))
+	seed, _ := c.Int(c.Reader, big.NewInt(math.MaxInt64))
+	rand.Seed(seed.Int64())
 
 	length := d.Get("length").(int)
 	alphabet := d.Get("alphabet").(string)

@@ -14,7 +14,7 @@ This will generate a secret and store the value directly in the Google Secret ma
   to avoid having the secret to be specified in the terraform file.
 
 ## Example basic usage
-```
+```tf
 resource "google_secret_manager_secret" "mysql_user_password" {
   secret_id = "mysql-user-password"
 }
@@ -35,7 +35,7 @@ resource "google_generated_password" "secret-version-basic" {
     }
   ]
   logical_version = "v1"
- return_secret = true
+  return_secret = true
   delete_on_destroy = true
 }
 ```
