@@ -7,7 +7,6 @@ import (
 	"math/big"
 	"math/rand"
 	"strings"
-	"time"
 )
 
 func resourceGeneratedPassword() *schema.Resource {
